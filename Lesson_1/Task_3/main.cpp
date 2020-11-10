@@ -14,6 +14,6 @@ int main()
     cout << "How many cone do squirrel collect?: ";
     cin >> coneCollect;
 
-    if (nutsNeed <= coneCollect * nutsInCone) cout << "YES, She'll survive";
+    if (nutsNeed < coneCollect * nutsInCone) cout << "YES, She'll survive";
     else cout << "NO, She needs more nuts to survive";
 }
