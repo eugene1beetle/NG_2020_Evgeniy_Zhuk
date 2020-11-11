@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int a = 0, b = 0, action = 0, result = 0;
+    int a = 0, b = 0, action = 0;
 
     cout << "Enter the first number: ";
     cin >> a;
@@ -20,27 +20,18 @@ int main()
     switch (action)
     {
         case 1:
-            result = a + b;
+            cout << a + b;
             break;
         case 2:
-            result = a - b;
+            cout << a - b;
             break;
         case 3:
-            result = a * b;
+            cout << a * b;
             break;
         case 4:
-            result = a / b;
+            cout << a / b;
             break;
         default:
             cout << "You peek a wrong operation!" << endl;
     }
-
-    if (action > 0)
-    {
-        if (action < 5)
-        {
-            cout << "Result = " << result;
-        }
-    }
-
 }
