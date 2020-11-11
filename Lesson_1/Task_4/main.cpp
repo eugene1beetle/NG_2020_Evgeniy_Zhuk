@@ -20,11 +20,11 @@ int main()
         {
             cout << "You have a nice salary!";
         }
-    }
 
-    if (salary > 1000000)
-    {
-        cout << "You're millioner!";
+        if (salary > 1000000)
+        {
+            cout << "You're millioner!";
+        }
     }
 
     cout << "... Good job!";
