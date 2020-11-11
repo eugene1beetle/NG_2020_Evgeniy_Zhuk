@@ -17,10 +17,30 @@ int main()
     cout << "Choose an action: ";
     cin >> action;
 
-    if (action == 1) result = a + b;
-    if (action == 2) result = a - b;
-    if (action == 3) result = a * b;
-    if (action == 4) result = a / b;
+    switch (action)
+    {
+        case 1:
+            result = a + b;
+            break;
+        case 2:
+            result = a - b;
+            break;
+        case 3:
+            result = a * b;
+            break;
+        case 4:
+            result = a / b;
+            break;
+        default:
+            cout << "You peek a wrong operation!" << endl;
+    }
 
-    cout << "Result = " << result;
+    if (action > 0)
+    {
+        if (action < 5)
+        {
+            cout << "Result = " << result;
+        }
+    }
+
 }
