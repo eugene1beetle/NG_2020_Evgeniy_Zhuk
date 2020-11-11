@@ -15,5 +15,5 @@ int main()
     cin >> coneCollect;
 
     if (nutsNeed < coneCollect * nutsInCone) cout << "YES, She'll survive";
-    else cout << "NO, She needs more nuts to survive";
+    if (nutsNeed > coneCollect * nutsInCone) cout << "NO, She needs more nuts to survive";
 }
