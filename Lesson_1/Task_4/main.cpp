@@ -14,14 +14,14 @@ int main()
         cout << "You need to work more!";
     }
 
-    if (salary > 1000)
+    if (salary > 999)
     {
         if (salary < 1000000)
         {
             cout << "You have a nice salary!";
         }
 
-        if (salary > 1000000)
+        if (salary > 999999)
         {
             cout << "You're millioner!";
         }
