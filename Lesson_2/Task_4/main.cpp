@@ -17,10 +17,11 @@ int main()
     {
         for (int j = 0; j < 5; j++)
         {
-            if (numbers[j] > 0)
+            int num = numbers[i];
+            if (num > 0)
             {
                 cout << "*";
-                numbers[j]--;
+                num--;
             }
             else cout << " ";
         }
