@@ -20,10 +20,10 @@ int main()
     {
         if (schools[i] == yourSchool)
         {
-            cout << "I know that school!";
+            cout << "I know that school!" << endl;
             return 0;
         }
     }
 
-    cout << "I don't know that school";
+    cout << "I don't know that school" << endl;
 }
