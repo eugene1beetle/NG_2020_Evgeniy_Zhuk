@@ -4,6 +4,26 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    int schools[10];
+    int yourSchool = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        cout << "Enter some numbers of schools: ";
+        cin >> schools[i];
+    }
+
+    cout << "Enter the number of your school: ";
+    cin >> yourSchool;
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (schools[i] == yourSchool)
+        {
+            cout << "I know that school!";
+            return 0;
+        }
+    }
+
+    cout << "I don't know that school";
 }
