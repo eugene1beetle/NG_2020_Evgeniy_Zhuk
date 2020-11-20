@@ -11,9 +11,12 @@ int main()
 
     while (true)
     {
-        int numberOfCard = 0, moneyToAdd = 0, sumOnCards = 0;
-        cout << "Enter the number of a card (0-9): ";
-        cin >> numberOfCard;
+        int numberOfCard = 5, moneyToAdd = 0, sumOnCards = 0;
+        do
+        {
+            cout << "Enter the number of a card (0-9): ";
+            cin >> numberOfCard;
+        } while (!(numberOfCard >= 0 && numberOfCard <= 9));
         cout << "How much money you want to add: ";
         cin >> moneyToAdd;
         cards[numberOfCard] += moneyToAdd;
