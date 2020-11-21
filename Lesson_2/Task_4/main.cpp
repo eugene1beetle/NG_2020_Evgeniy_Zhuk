@@ -17,11 +17,9 @@ int main()
     {
         for (int j = 0; j < 5; j++)
         {
-            int num = numbers[i];
-            if (num > 0)
+            if (i < numbers[j])
             {
                 cout << "*";
-                num--;
             }
             else cout << " ";
         }
