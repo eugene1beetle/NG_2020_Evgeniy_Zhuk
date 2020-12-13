@@ -1,30 +1,23 @@
 #include <iostream>
-#include <string.h>
 
 using namespace std;
 
 int main()
 {
-    string s;
-    cout << "Enter string: "; // asdw4qwerty4zxc
-    cin >> s;
+    int strLen = 256;
+    char str[strLen];
+    cout << "Enter string: ";
+    for (int i = 0; i < strLen; i++)
+        str[i] = 0;
+    cin.getline(str, strLen);
 
-    char charArray[s.length() + 1];
-    strcpy(charArray, s.c_str());
-
-    for (int i = 0; i < s.length() + 1; i++)
-    {
-        if (charArray[i] >= 'a' && charArray[i] <= 'z')
-        {
-            charArray[i] -= 32;
-        }
-    }
+    for (int i = 0; i < strLen; i++)
+        if (str[i] >= 'a' && str[i] <= 'z')
+            str[i] -= 32;
 
     cout << "Result: ";
-    for (int i = 0; i < s.length() + 1; i++)
-    {
-        cout << charArray[i];
-    }
+    for (int i = 0; i < strLen; i++)
+        cout << str[i];
 
     cout << endl;
 }

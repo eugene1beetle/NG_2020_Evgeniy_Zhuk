@@ -6,9 +6,9 @@ int main()
 {
     int strLen = 256;
     char str[strLen];
-
-    for (int i = 0; i < strLen; i++) str[i] = 0;
-
+    cout << "Enter string: ";
+    for (int i = 0; i < strLen; i++)
+        str[i] = 0;
     cin.getline(str, strLen);
 
     int charCounter = 0;
