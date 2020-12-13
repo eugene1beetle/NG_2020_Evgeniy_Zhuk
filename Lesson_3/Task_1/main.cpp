@@ -5,18 +5,19 @@ using namespace std;
 
 int main()
 {
-    string str;
-    cin >> str;
+    int strLen = 256;
+    char str[strLen];
 
-    char charArray[str.length() + 1];
-    strcpy(charArray, str.c_str());
+    for (int i = 0; i < strLen; i++) str[i] = 0;
+
+    cin.getline(str, strLen);
 
     int charCounter = 0;
     int wordCounter = 0;
 
-    for (int i = 0; i < str.length() + 1; i++)
+    for (int i = 0; i < strLen; i++)
     {
-        if ((charArray[i] >= 'A' && charArray[i] <= 'Z') || (charArray[i] >= 'a' && charArray[i] <= 'z'))
+        if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
         {
             charCounter++;
             continue;
