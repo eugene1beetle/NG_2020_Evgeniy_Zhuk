@@ -1,32 +1,30 @@
 #include <iostream>
-#include <string.h>
 
 using namespace std;
 
 int main()
 {
-    string s;
+    int strLen = 256;
+    char str[strLen];
     cout << "Enter string: ";
-    getline(cin, s);
+    for (int i = 0; i < strLen; i++)
+        str[i] = 0;
+    cin.getline(str, strLen);
 
-    int strLenght = s.length();
-    char charArray[strLenght];
-    strcpy(charArray, s.c_str());
-
-    char asciiArray[256];
-    for (int i = 0; i < 256; i++)
+    char asciiArray[strLen];
+    for (int i = 0; i < strLen; i++)
         asciiArray[i] = 0;
 
-    for (int i = 0; i < strLenght; i++)
-        asciiArray[charArray[i]]++;
+    for (int i = 0; i < strLen; i++)
+        if (str[i] != 0) asciiArray[str[i]]++;
 
-    int arrayToSort[256][2];
-    for (int i = 0; i < 256; i++)
+    int arrayToSort[strLen][2];
+    for (int i = 0; i < strLen; i++)
         for (int j = 0; j < 2; j++)
             arrayToSort[i][j] = 0;
 
     int counter = 0;
-    for (int i = 0; i < 256; i++)
+    for (int i = 0; i < strLen; i++)
         if ((int) asciiArray[i] != 0)
         {
             arrayToSort[counter][0] = (int) asciiArray[i];
