@@ -2,50 +2,60 @@
 
 using namespace std;
 
+void fillArrWith0(char arr[], int len)
+{
+    for (int i = 0; i < len; i++)
+        arr[i] = 0;
+}
+
+void fillArrWith0(int arr[], int len)
+{
+    for (int i = 0; i < len; i++)
+        arr[i] = 0;
+}
+
 int main()
 {
     int strLen = 256;
     char str[strLen];
     cout << "Enter string: ";
-    for (int i = 0; i < strLen; i++)
-        str[i] = 0;
+    fillArrWith0(str, strLen);
     cin.getline(str, strLen);
 
     char asciiArray[strLen];
-    for (int i = 0; i < strLen; i++)
-        asciiArray[i] = 0;
+    fillArrWith0(asciiArray, strLen);
 
     for (int i = 0; i < strLen; i++)
         if (str[i] != 0) asciiArray[str[i]]++;
 
-    int arrayToSort[strLen][2];
-    for (int i = 0; i < strLen; i++)
-        for (int j = 0; j < 2; j++)
-            arrayToSort[i][j] = 0;
+    int vals[strLen];
+    int freq[strLen];
+    fillArrWith0(vals, strLen);
+    fillArrWith0(freq, strLen);
 
     int counter = 0;
     for (int i = 0; i < strLen; i++)
         if ((int) asciiArray[i] != 0)
         {
-            arrayToSort[counter][0] = (int) asciiArray[i];
-            arrayToSort[counter][1] = i;
+            freq[counter] = (int) asciiArray[i];
+            vals[counter] = i;
             counter++;
         }
 
     for (int i = 0; i < counter - 1; i++)
         for (int j = 0; j < counter - i - 1; j++)
-            if (arrayToSort[j + 1][0] > arrayToSort[j][0])
+            if (freq[j + 1] > freq[j])
             {
-                int tmp0 = arrayToSort[j][0];
-                int tmp1 = arrayToSort[j][1];
+                int tmp0 = freq[j];
+                int tmp1 = vals[j];
 
-                arrayToSort[j][0] = arrayToSort[j + 1][0];
-                arrayToSort[j][1] = arrayToSort[j + 1][1];
+                freq[j] = freq[j + 1];
+                vals[j] = vals[j + 1];
 
-                arrayToSort[j + 1][0] = tmp0;
-                arrayToSort[j + 1][1] = tmp1;
+                freq[j + 1] = tmp0;
+                vals[j + 1] = tmp1;
             }
 
     for (int i = 0; i < counter; i++)
-          cout << (char) arrayToSort[i][1] << " - " << arrayToSort[i][0] << endl;
+          cout << (char) vals[i] << " - " << freq[i] << endl;
 }
