@@ -12,7 +12,6 @@ void getUserImput(char str[], int strLen)
 
 void countWord(char str[], int strLen, int pos, int data[])
 {
-//    cout << data[1] << " <-1 0-> " << data[0] << endl;
     if (pos < strLen)
     {
         if ((str[pos] >= 'A' && str[pos] <= 'Z') || (str[pos] >= 'a' && str[pos] <= 'z'))
