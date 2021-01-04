@@ -14,25 +14,16 @@ void fillArrWith0(int arr[], int len)
         arr[i] = 0;
 }
 
-int main()
+void getUserImput(char str[], int strLen)
 {
-    int strLen = 256;
-    char str[strLen];
     cout << "Enter string: ";
-    fillArrWith0(str, strLen);
-    cin.getline(str, strLen);
-
-    char asciiArray[strLen];
-    fillArrWith0(asciiArray, strLen);
-
     for (int i = 0; i < strLen; i++)
-        if (str[i] != 0) asciiArray[str[i]]++;
+        str[i] = 0;
+    cin.getline(str, strLen);
+}
 
-    int vals[strLen];
-    int freq[strLen];
-    fillArrWith0(vals, strLen);
-    fillArrWith0(freq, strLen);
-
+void sortAndShow(int strLen, char asciiArray[], int freq[], int vals[])
+{
     int counter = 0;
     for (int i = 0; i < strLen; i++)
         if ((int) asciiArray[i] != 0)
@@ -58,4 +49,29 @@ int main()
 
     for (int i = 0; i < counter; i++)
           cout << (char) vals[i] << " - " << freq[i] << endl;
+}
+
+void createVars(int strLen)
+{
+    char str[strLen];
+    getUserImput(str, strLen);
+
+    char asciiArray[strLen];
+    fillArrWith0(asciiArray, strLen);
+
+    for (int i = 0; i < strLen; i++)
+        if (str[i] != 0) asciiArray[str[i]]++;
+
+    int vals[strLen];
+    int freq[strLen];
+    fillArrWith0(vals, strLen);
+    fillArrWith0(freq, strLen);
+
+    sortAndShow(strLen, asciiArray, freq, vals);
+}
+
+
+int main()
+{
+    createVars(256);
 }
