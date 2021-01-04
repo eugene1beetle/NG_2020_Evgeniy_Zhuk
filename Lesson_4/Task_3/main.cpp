@@ -32,14 +32,16 @@ void countWord(char str[], int strLen, int pos, int data[])
     }
 }
 
+void setupAndOut(int len, int data[])
+{
+    char str[len];
+    getUserImput(str, len);
+    countWord(str, len, 0, data);
+    cout << data[1] << endl;
+}
+
 int main()
 {
-    int strLen = 256;
-    char str[strLen];
-    getUserImput(str, strLen);
-
     int data[] = {0, 0}; // data0 - char counter, data1 - word counter
-
-    countWord(str, strLen, 0, data);
-    cout << data[1] << endl;
+    setupAndOut(256, data);
 }
