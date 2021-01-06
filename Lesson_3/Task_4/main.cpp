@@ -8,12 +8,6 @@ void fillArrWith0(char arr[], int len)
         arr[i] = 0;
 }
 
-void fillArrWith0(int arr[], int len)
-{
-    for (int i = 0; i < len; i++)
-        arr[i] = 0;
-}
-
 void getUserImput(char str[], int strLen)
 {
     cout << "Enter string: ";
@@ -64,8 +58,6 @@ void createVars(int strLen)
 
     int vals[strLen];
     int freq[strLen];
-    fillArrWith0(vals, strLen);
-    fillArrWith0(freq, strLen);
 
     sortAndShow(strLen, asciiArray, freq, vals);
 }
