@@ -16,9 +16,11 @@ void getUserImput(char str[], int strLen)
     cin.getline(str, strLen);
 }
 
-void sortAndShow(int strLen, char asciiArray[], int freq[], int vals[])
+void sortAndShow(int strLen, char asciiArray[])
 {
     int counter = 0;
+    int vals[strLen];
+    int freq[strLen];
     for (int i = 0; i < strLen; i++)
         if ((int) asciiArray[i] != 0)
         {
@@ -45,25 +47,22 @@ void sortAndShow(int strLen, char asciiArray[], int freq[], int vals[])
           cout << (char) vals[i] << " - " << freq[i] << endl;
 }
 
-void createVars(int strLen)
+void countChars(char str[], char asciiArray[], int strLen)
 {
-    char str[strLen];
-    getUserImput(str, strLen);
-
-    char asciiArray[strLen];
     fillArrWith0(asciiArray, strLen);
 
     for (int i = 0; i < strLen; i++)
         if (str[i] != 0) asciiArray[str[i]]++;
-
-    int vals[strLen];
-    int freq[strLen];
-
-    sortAndShow(strLen, asciiArray, freq, vals);
 }
-
 
 int main()
 {
-    createVars(256);
+    int strLen = 256;
+    char str[strLen];
+    getUserImput(str, strLen);
+
+    char asciiArray[strLen];
+    countChars(str, asciiArray, strLen);
+
+    sortAndShow(strLen, asciiArray);
 }
