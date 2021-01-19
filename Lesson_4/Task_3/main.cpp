@@ -10,28 +10,23 @@ void getUserImput(char str[], int strLen)
     cin.getline(str, strLen);
 }
 
-int charCounter = 0;
-int wordCounter = 0;
-
-void countWord(char str[], int strLen, int pos)
+int countWord(char str[], int strLen, int pos, int charCounter, int wordCounter)
 {
     if (pos < strLen)
     {
         if ((str[pos] >= 'A' && str[pos] <= 'Z') || (str[pos] >= 'a' && str[pos] <= 'z'))
         {
             charCounter++;
-            countWord(str, strLen, pos + 1);
-            return;
+            return 0 + countWord(str, strLen, pos + 1, charCounter, wordCounter);
         }
         else if (charCounter > 0)
         {
             wordCounter++;
             charCounter = 0;
-            countWord(str, strLen, pos + 1);
-            return;
+            return 1 + countWord(str, strLen, pos + 1, charCounter, wordCounter);
         }
         if (!((str[pos] >= 'A' && str[pos] <= 'Z') || (str[pos] >= 'a' && str[pos] <= 'z')))
-            countWord(str, strLen, pos + 1);
+            return 0 + countWord(str, strLen, pos + 1, charCounter, wordCounter);
     }
 }
 
@@ -40,6 +35,5 @@ int main()
     int len = 256;
     char str[len];
     getUserImput(str, len);
-    countWord(str, len, 0);
-    cout << wordCounter << endl;
+    cout << countWord(str, len, 0, 0, 0) - len << endl;
 }
