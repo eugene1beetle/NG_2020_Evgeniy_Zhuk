@@ -22,6 +22,7 @@ private:
     QVector<QTcpSocket*> clients;
     QVector<QString> nicknames;
     void nickArrayChanged();
+    QByteArray deCryptData(QByteArray data);
 };
 
 #endif // SERVAK_H

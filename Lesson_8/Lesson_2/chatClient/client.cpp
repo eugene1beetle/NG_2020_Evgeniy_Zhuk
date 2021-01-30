@@ -32,7 +32,7 @@ void Client::connectToServer()
     int port = ui->sb_port->value();
     socket->connectToHost(ip, port);
 
-    socket->write(QString("%1 is connected!").arg(ui->e_nickname->text()).toUtf8());
+    sendCryptedData(QString("%1 is connected!").arg(ui->e_nickname->text()).toUtf8());
 }
 
 void Client::connectedToServer()
@@ -46,7 +46,7 @@ void Client::send()
     QString message = ui->e_nickname->text();
     message += ": ";
     message += ui->t_message->toPlainText();
-    socket->write(message.toUtf8());
+    sendCryptedData(message.toUtf8());
 }
 
 void Client::receive()
@@ -65,9 +65,36 @@ void Client::receive()
 void Client::parseNicknames(QString nicksMessage)
 {
     QString nickWithSplitter = nicksMessage.split("{")[1];
-    qDebug() << nickWithSplitter;
+//    qDebug() << "nickWithSplitter:" << nickWithSplitter;
 
     ui->l_users->clear();
     ui->l_users->addItems(nickWithSplitter.split(","));
+}
+
+void Client::sendCryptedData(QByteArray data)
+{
+//    qDebug() << "Original:" << QString::fromUtf8(data);
+
+    int key = 15;
+
+    int counter = 1;
+    bool increment = true;
+    int iterator = 0;
+    for (int b : data) {
+        data[iterator] = b + counter;
+
+        if (counter >= key || counter < 1) increment = !increment;
+
+        increment ? counter++ : counter--;
+        iterator++;
+    }
+
+//    qDebug() << "Crypted:" <<  QString::fromUtf8(data);
+
+    data.prepend(key);
+
+//    qDebug() << "With key:" << QString::fromUtf8(data);
+
+    socket->write(data);
 }
 

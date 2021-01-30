@@ -26,5 +26,6 @@ private:
     Ui::Client *ui;
     QTcpSocket *socket;
     void parseNicknames(QString nicksMessage);
+    void sendCryptedData(QByteArray data);
 };
 #endif // CLIENT_H
