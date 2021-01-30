@@ -16,9 +16,12 @@ public:
     ~WordCounter();
 
 private slots:
-    void on_userInput_textChanged();
+    void userInputChange();
 
 private:
     Ui::WordCounter *ui;
+
+    bool isLetter(QChar ch);
+    int countWords(QString text);
 };
 #endif // WORDCOUNTER_H
