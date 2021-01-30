@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    connect (ui->firstNum, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::firstNumValueChange);
+    connect (ui->secondNum, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::secondNumValueChange);
+
     ui->firstNum->setMinimum(-100);
     ui->firstNum->setMaximum(100);
 
@@ -22,15 +25,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-
-void MainWindow::on_firstNum_valueChanged(int arg1)
+void MainWindow::firstNumValueChange()
 {
-    ui->result->setText(QString::number(ui->firstNum->value() + ui->secondNum->value()));
+    ui->result->setText(QString::number( ui->firstNum->value() + ui->secondNum->value() ));
 }
 
-void MainWindow::on_secondNum_valueChanged(int arg1)
+void MainWindow::secondNumValueChange()
 {
-    ui->result->setText(QString::number(ui->firstNum->value() + ui->secondNum->value()));
+    ui->result->setText(QString::number( ui->firstNum->value() + ui->secondNum->value() ));
 }

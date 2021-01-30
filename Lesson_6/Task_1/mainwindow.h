@@ -17,10 +17,8 @@ public:
     ~MainWindow();
 
 private slots:
-
-    void on_firstNum_valueChanged(int arg1);
-
-    void on_secondNum_valueChanged(int arg1);
+    void firstNumValueChange();
+    void secondNumValueChange();
 
 private:
     Ui::MainWindow *ui;
