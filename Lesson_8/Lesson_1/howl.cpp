@@ -88,9 +88,7 @@ void Howl::progerssSliderReleased()
 void Howl::playListChanged()
 {
     ui->l_playlist->clear();
-    for (QString song : playlist) {
-        ui->l_playlist->addItem(song.remove(0, song.lastIndexOf("/") + 1));
-    }
+    for (QString song : playlist) ui->l_playlist->addItem(song.remove(0, song.lastIndexOf("/") + 1));
 }
 
 void Howl::playlistPlayPressed()
@@ -160,7 +158,5 @@ void Howl::loadPlaylistPressed()
     }
     playListChanged();
 
-//    for (QString s : playlist) {
-//        qDebug() << "s:" << s;
-//    }
+//    for (QString s : playlist) qDebug() << "s:" << s;
 }
